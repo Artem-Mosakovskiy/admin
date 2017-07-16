@@ -1,6 +1,58 @@
-@extends('layouts.app')
+@extends('layouts.auth')
 
 @section('content')
+    <body class="hold-transition login-page">
+
+
+    <div class="login-box">
+        <div class="login-logo">
+            <a href="#"><b>Узлы</b> учета</a>
+        </div>
+
+        <div class="login-box-body">
+            <p class="login-box-msg">Войдите для начала работы</p>
+
+            <form method="POST" action="{{ route('login') }}">
+                {{ csrf_field() }}
+                <div class="form-group has-feedback">
+                    <input id="email" type="text" class="form-control" placeholder="Логин" name="login" value="{{ old('email') }}" required autofocus>
+                    <span class="glyphicon glyphicon-user form-control-feedback"></span>
+
+                    @if ($errors->has('login'))
+                        <span class="help-block">
+                        <strong>{{ $errors->first('login') }}</strong>
+                    </span>
+                    @endif
+                </div>
+                <div class="form-group has-feedback">
+                    <input id="password" type="password" class="form-control" name="password" required placeholder="Пароль">
+                    <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+
+                    @if ($errors->has('password'))
+                        <span class="help-block">
+                        <strong>{{ $errors->first('password') }}</strong>
+                    </span>
+                    @endif
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-4">
+                        <button type="submit" class="btn btn-primary btn-block btn-flat">Вход</button>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+
+    </div>
+
+    <script src="/js/jquery.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    </body>
+
+@endsection
+
+@section('contentOLD')
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">

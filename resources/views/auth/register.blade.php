@@ -1,6 +1,98 @@
-@extends('layouts.app')
+@extends('layouts.auth')
 
 @section('content')
+    <body class="hold-transition register-page">
+    <div class="register-box">
+        <div class="register-logo">
+            <a href="#"><b>Узлы</b> учета</a>
+        </div>
+
+        <div class="register-box-body">
+            <p class="login-box-msg">Регистрация</p>
+
+            <form action="{{ route('register') }}" method="post">
+                {{ csrf_field() }}
+
+                <div class="form-group has-feedback">
+                    <input id="name" type="text" class="form-control" name="f_name" value="{{ old('f_name') }}" placeholder="Ф" required autofocus>
+                    <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                    @if ($errors->has('f_name'))
+                        <span class="help-block">
+                            <strong>{{ $errors->first('f_name') }}</strong>
+                        </span>
+                    @endif
+                </div>
+
+                <div class="form-group has-feedback">
+                    <input id="name" type="text" class="form-control" name="s_name" value="{{ old('s_name') }}" placeholder="И" required autofocus>
+                    <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                    @if ($errors->has('s_name'))
+                        <span class="help-block">
+                            <strong>{{ $errors->first('s_name') }}</strong>
+                        </span>
+                    @endif
+                </div>
+
+                <div class="form-group has-feedback">
+                    <input id="name" type="text" class="form-control" name="t_name" value="{{ old('t_name') }}" placeholder="О" required autofocus>
+                    <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                    @if ($errors->has('t_name'))
+                        <span class="help-block">
+                            <strong>{{ $errors->first('t_name') }}</strong>
+                        </span>
+                    @endif
+                </div>
+
+                <div class="form-group has-feedback">
+                    <input id="name" type="text" class="form-control" name="login" value="{{ old('login') }}" placeholder="Логин" required autofocus>
+                    <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                    @if ($errors->has('login'))
+                        <span class="help-block">
+                            <strong>{{ $errors->first('login') }}</strong>
+                        </span>
+                    @endif
+                </div>
+
+                <div class="form-group has-feedback">
+                    <input id="password" type="password" class="form-control" name="password" placeholder="Пароль" required>
+                    <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                    @if ($errors->has('password'))
+                        <span class="help-block">
+                            <strong>{{ $errors->first('password') }}</strong>
+                        </span>
+                    @endif
+                </div>
+                <div class="form-group has-feedback">
+                    <input id="password-confirm" type="password" class="form-control" name="password_confirmation" placeholder="Подтверждение пароля" required>
+                    <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
+                </div>
+
+                <div class="form-group has-feedback">
+                    {{ Form::select('role', $user_roles, null, ['class' => 'form-control']) }}
+                </div>
+
+                <div class="form-group has-feedback">
+                    {{ Form::select('type', $user_types, null, ['class' => 'form-control']) }}
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-5">
+                        <button type="submit" class="btn btn-primary btn-block btn-flat">Регистрация</button>
+                    </div>
+                </div>
+            </form>
+
+
+        </div>
+    </div>
+
+    <script src="/js/jquery.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+
+    </body>
+@endsection
+
+@section('content1')
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">

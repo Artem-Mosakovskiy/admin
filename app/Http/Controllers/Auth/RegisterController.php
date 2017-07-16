@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use App\Http\Controllers\Controller;
+use App\UserRoles;
+use App\UserTypes;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
@@ -48,9 +50,11 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:6|confirmed',
+            'f_name' => 'required|string|max:255',
+            's_name' => 'required|string|max:255',
+            't_name' => 'required|string|max:255',
+            'login' => 'required|unique:users',
+            'password' => 'required|min:6|confirmed',
         ]);
     }
 
@@ -63,9 +67,21 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
+            'f_name' => $data['f_name'],
+            's_name' => $data['s_name'],
+            't_name' => $data['t_name'],
+            'login' => $data['login'],
+            'role_id' => $data['role'],
+            'type_id' => $data['type'],
             'password' => bcrypt($data['password']),
+        ]);
+    }
+
+    public function showRegistrationForm()
+    {
+        return view('auth.register',[
+            'user_roles' => UserRoles::all()->pluck('role', 'id'),
+            'user_types' => UserTypes::all()->pluck('type', 'id')
         ]);
     }
 }

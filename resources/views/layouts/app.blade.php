@@ -1,3 +1,4 @@
+{{--
 <!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}">
 <head>
@@ -76,5 +77,116 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+</body>
+</html>
+--}}
+
+
+        <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Узлы учета</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+
+    <link rel="stylesheet" href="/css/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/AdminLTE.min.css">
+    <link rel="stylesheet" href="/css/all-skins.min.css">
+
+    <!-- Google Font -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+<!-- Site wrapper -->
+<div class="wrapper">
+
+    <header class="main-header">
+
+        <a href="/" class="logo">
+            <span class="logo-mini">Узлы</span>
+            <span class="logo-lg"><b>Узлы</b> Учета</span>
+        </a>
+        <!-- Header Navbar: style can be found in header.less -->
+        <nav class="navbar navbar-static-top">
+            <!-- Sidebar toggle button-->
+            <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </a>
+
+            <div class="navbar-custom-menu">
+                <ul class="nav navbar-nav">
+                    <li class="dropdown user user-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <span class="hidden-xs">{{ Auth::user()->login }}</span>
+                        </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li class="user-footer">
+                                <a href="{{ route('logout') }}"
+                                   onclick="event.preventDefault();
+                                   document.getElementById('logout-form').submit();">
+                                    Выход
+                                </a>
+
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    {{ csrf_field() }}
+                                </form>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <aside class="main-sidebar">
+
+        <section class="sidebar">
+
+            <ul class="sidebar-menu" data-widget="tree">
+                <li class="header">Меню</li>
+                <li>
+                    <a href="#">
+                        <i class="fa fa-user"></i> <span>Пользователи</span>
+                    </a>
+                </li>
+               {{-- <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+                        <span class="pull-right-container">
+                          <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="../../index.html"><i class="fa fa-circle-o"></i> Dashboard v1</a></li>
+                        <li><a href="../../index2.html"><i class="fa fa-circle-o"></i> Dashboard v2</a></li>
+                    </ul>
+                </li>--}}
+            </ul>
+        </section>
+    </aside>
+
+    @yield('content')
+
+    <footer class="main-footer">
+        <strong>Copyright &copy; 2017 </strong> Все права защищены
+    </footer>
+
+</div>
+
+<script src="/js/jquery.js"></script>
+<script src="/css/bootstrap/js/bootstrap.min.js"></script>
+<script src="/js/adminlte.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $('.sidebar-menu').tree()
+    })
+</script>
 </body>
 </html>

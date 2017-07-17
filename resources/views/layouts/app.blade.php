@@ -147,31 +147,27 @@
     <aside class="main-sidebar">
 
         <section class="sidebar">
-
-            <ul class="sidebar-menu" data-widget="tree">
-                <li class="header">Меню</li>
-                <li>
-                    <a href="#">
-                        <i class="fa fa-user"></i> <span>Пользователи</span>
-                    </a>
-                </li>
-               {{-- <li class="treeview">
-                    <a href="#">
-                        <i class="fa fa-dashboard"></i> <span>Dashboard</span>
-                        <span class="pull-right-container">
-                          <i class="fa fa-angle-left pull-right"></i>
-                        </span>
-                    </a>
-                    <ul class="treeview-menu">
-                        <li><a href="../../index.html"><i class="fa fa-circle-o"></i> Dashboard v1</a></li>
-                        <li><a href="../../index2.html"><i class="fa fa-circle-o"></i> Dashboard v2</a></li>
-                    </ul>
-                </li>--}}
-            </ul>
+            @include('elements.navigation')
         </section>
     </aside>
 
-    @yield('content')
+    <div class="content-wrapper">
+
+        @if(Session::has('success'))
+            <div class="row">
+                <div class="col-sm-6" style="margin: 15px 0 0 15px">
+                    <div class="alert alert-success alert-dismissible">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                        {{ Session::get('success') }}
+                    </div>
+                </div>
+            </div>
+
+        @endif
+
+
+        @yield('content')
+    </div>
 
     <footer class="main-footer">
         <strong>Copyright &copy; 2017 </strong> Все права защищены

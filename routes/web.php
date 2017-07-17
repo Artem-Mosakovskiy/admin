@@ -16,3 +16,14 @@ Route::get('/', 'Auth\LoginController@showLoginForm');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+/* users CRUD */
+Route::get('/admin/users', 'Admin\UsersController@index');
+Route::get('/admin/users/add', 'Admin\UsersController@add');
+Route::get('/admin/users/edit/{id}', 'Admin\UsersController@edit');
+Route::get('/admin/users/delete/{id}', 'Admin\UsersController@delete');
+
+Route::post('/admin/users/save', 'Admin\UsersController@save');
+Route::post('/admin/users/update', 'Admin\UsersController@update');
+
+

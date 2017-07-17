@@ -6,6 +6,22 @@
                 <i class="fa fa-user"></i> <span>Пользователи</span>
             </a>
         </li>
+        <li class="header">Редактируемые справочники</li>
+        <li>
+            <a href="/admin/resource">
+                <i class="glyphicon glyphicon-certificate"></i> <span>Ресурсы</span>
+            </a>
+        </li>
+        <li>
+            <a href="/admin/ycompany">
+                <i class="glyphicon glyphicon-home"></i> <span>УК</span>
+            </a>
+        </li>
+        <li>
+            <a href="/admin/rsocompany">
+                <i class="glyphicon glyphicon-usd"></i> <span>РСО</span>
+            </a>
+        </li>
     @endif
 
     {{-- <li class="treeview">

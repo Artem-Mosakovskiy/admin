@@ -22,6 +22,59 @@
                 <i class="glyphicon glyphicon-usd"></i> <span>РСО</span>
             </a>
         </li>
+        <li class="treeview">
+            <a href="#">
+                <i class="fa fa-thermometer-quarter"></i> <span>Тепловычислители</span>
+             <span class="pull-right-container">
+               <i class="fa fa-angle-left pull-right"></i>
+             </span>
+            </a>
+            <ul class="treeview-menu">
+                <li><a href="../../index.html"><i class="fa fa-circle-o"></i> Марки</a></li>
+                <li><a href="../../index2.html"><i class="fa fa-circle-o"></i> Модели</a></li>
+            </ul>
+        </li>
+        <li class="treeview">
+            <a href="#">
+                <i class="fa fa-dashboard"></i> <span>Расходомеры на подаче</span>
+             <span class="pull-right-container">
+               <i class="fa fa-angle-left pull-right"></i>
+             </span>
+            </a>
+            <ul class="treeview-menu">
+                <li><a href="../../index.html"><i class="fa fa-circle-o"></i> Марки</a></li>
+                <li><a href="../../index2.html"><i class="fa fa-circle-o"></i> Модели</a></li>
+            </ul>
+        </li>
+        <li class="treeview">
+            <a href="#">
+                <i class="fa fa-dashboard"></i> <span>Расходомеры на обработке</span>
+             <span class="pull-right-container">
+               <i class="fa fa-angle-left pull-right"></i>
+             </span>
+            </a>
+            <ul class="treeview-menu">
+                <li><a href="../../index.html"><i class="fa fa-circle-o"></i> Марки</a></li>
+                <li><a href="../../index2.html"><i class="fa fa-circle-o"></i> Модели</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="/admin/complect">
+                <i class="fa fa-microchip"></i> <span>Комплект термопар</span>
+            </a>
+        </li>
+        <li class="treeview">
+            <a href="#">
+                <i class="fa fa-tachometer"></i> <span>Датчики давления</span>
+             <span class="pull-right-container">
+               <i class="fa fa-angle-left pull-right"></i>
+             </span>
+            </a>
+            <ul class="treeview-menu">
+                <li><a href="/admin/power_podacha"><i class="fa fa-circle-o"></i> На подаче</a></li>
+                <li><a href="/admin/power_obrabotka"><i class="fa fa-circle-o"></i> На обработке</a></li>
+            </ul>
+        </li>
     @endif
 
     {{-- <li class="treeview">

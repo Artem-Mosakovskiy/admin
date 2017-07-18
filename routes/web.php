@@ -52,3 +52,30 @@ Route::get('/admin/rsocompany/delete/{id}', 'Admin\RSOCompanyController@delete')
 
 Route::post('/admin/rsocompany/save', 'Admin\RSOCompanyController@save');
 Route::post('/admin/rsocompany/update', 'Admin\RSOCompanyController@update');
+
+/* complect types CRUD */
+Route::get('/admin/complect', 'Admin\KomplectTermoparController@index');
+Route::get('/admin/complect/add', 'Admin\KomplectTermoparController@add');
+Route::get('/admin/complect/edit/{id}', 'Admin\KomplectTermoparController@edit');
+Route::get('/admin/complect/delete/{id}', 'Admin\KomplectTermoparController@delete');
+
+Route::post('/admin/complect/save', 'Admin\KomplectTermoparController@save');
+Route::post('/admin/complect/update', 'Admin\KomplectTermoparController@update');
+
+/* power_podacha types CRUD */
+Route::get('/admin/power_podacha', 'Admin\DavlenieNaPodacheController@index');
+Route::get('/admin/power_podacha/add', 'Admin\DavlenieNaPodacheController@add');
+Route::get('/admin/power_podacha/edit/{id}', 'Admin\DavlenieNaPodacheController@edit');
+Route::get('/admin/power_podacha/delete/{id}', 'Admin\DavlenieNaPodacheController@delete');
+
+Route::post('/admin/power_podacha/save', 'Admin\DavlenieNaPodacheController@save');
+Route::post('/admin/power_podacha/update', 'Admin\DavlenieNaPodacheController@update');
+
+/* power_obrabotka types CRUD */
+Route::get('/admin/power_obrabotka', 'Admin\DavlenieNaObrabotkeController@index');
+Route::get('/admin/power_obrabotka/add', 'Admin\DavlenieNaObrabotkeController@add');
+Route::get('/admin/power_obrabotka/edit/{id}', 'Admin\DavlenieNaObrabotkeController@edit');
+Route::get('/admin/power_obrabotka/delete/{id}', 'Admin\DavlenieNaObrabotkeController@delete');
+
+Route::post('/admin/power_obrabotka/save', 'Admin\DavlenieNaObrabotkeController@save');
+Route::post('/admin/power_obrabotka/update', 'Admin\DavlenieNaObrabotkeController@update');

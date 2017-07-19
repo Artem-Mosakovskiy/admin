@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateResourceTypesTable extends Migration
+class CreateCitiesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,11 @@ class CreateResourceTypesTable extends Migration
      */
     public function up()
     {
-        if(!Schema::hasTable('resource_types')){
-            Schema::create('resource_types', function (Blueprint $table) {
-                $table->increments('id');
-                $table->string('type');
-            });
-        }
-
+        Schema::create('cities', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('city');
+            $table->integer('deleted')->default(0);
+        });
     }
 
     /**
@@ -29,6 +27,6 @@ class CreateResourceTypesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('resource_types');
+        Schema::dropIfExists('cities');
     }
 }

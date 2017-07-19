@@ -17,6 +17,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/database_artisan_migrate', 'ArtisanMigrateController@migrate');
+
 /* users CRUD */
 Route::get('/admin/users', 'Admin\UsersController@index');
 Route::get('/admin/users/add', 'Admin\UsersController@add');
@@ -133,3 +135,32 @@ Route::get('/admin/rashodomer_obrabotka_marka/delete/{id}', 'Admin\RashodomerObr
 
 Route::post('/admin/rashodomer_obrabotka_marka/save', 'Admin\RashodomerObrabotkaMarkaController@save');
 Route::post('/admin/rashodomer_obrabotka_marka/update', 'Admin\RashodomerObrabotkaMarkaController@update');
+
+/* cities crud */
+Route::get('/admin/cities', 'Admin\CitiesController@index');
+Route::get('/admin/cities/add', 'Admin\CitiesController@add');
+Route::get('/admin/cities/edit/{id}', 'Admin\CitiesController@edit');
+Route::get('/admin/cities/delete/{id}', 'Admin\CitiesController@delete');
+
+Route::post('/admin/cities/save', 'Admin\CitiesController@save');
+Route::post('/admin/cities/update', 'Admin\CitiesController@update');
+
+/* streets crud */
+Route::get('/admin/streets', 'Admin\StreetsController@index');
+Route::get('/admin/streets/add', 'Admin\StreetsController@add');
+Route::get('/admin/streets/edit/{id}', 'Admin\StreetsController@edit');
+Route::get('/admin/streets/delete/{id}', 'Admin\StreetsController@delete');
+
+Route::post('/admin/streets/save', 'Admin\StreetsController@save');
+Route::post('/admin/streets/update', 'Admin\StreetsController@update');
+
+/* houses crud */
+Route::get('/admin/houses', 'Admin\HouseController@index');
+Route::get('/admin/houses/add', 'Admin\HouseController@add');
+Route::get('/admin/houses/edit/{id}', 'Admin\HouseController@edit');
+Route::get('/admin/houses/delete/{id}', 'Admin\HouseController@delete');
+
+Route::post('/admin/houses/save', 'Admin\HouseController@save');
+Route::post('/admin/houses/update', 'Admin\HouseController@update');
+
+Route::get('/admin/cities/ajaxGetStreets/{city_id}', 'Admin\HouseController@ajaxGetStreets');

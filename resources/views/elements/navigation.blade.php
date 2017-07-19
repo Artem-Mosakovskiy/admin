@@ -1,5 +1,10 @@
 <ul class="sidebar-menu" data-widget="tree">
     <li class="header">Меню</li>
+    <li>
+        <a href="/admin/users">
+            <i class="fa fa-list"></i> <span>Узлы учета</span>
+        </a>
+    </li>
     @if(\Illuminate\Support\Facades\Auth::user()->hasRole(1))
         <li>
             <a href="/admin/users">
@@ -7,6 +12,19 @@
             </a>
         </li>
         <li class="header">Редактируемые справочники</li>
+        <li class="treeview">
+            <a href="#">
+                <i class="fa fa-circle"></i> <span>Местоположение</span>
+             <span class="pull-right-container">
+               <i class="fa fa-angle-left pull-right"></i>
+             </span>
+            </a>
+            <ul class="treeview-menu">
+                <li><a href="/admin/cities"><i class="fa fa-building-o"></i> Города</a></li>
+                <li><a href="/admin/streets"><i class="fa fa-building"></i> Улицы</a></li>
+                <li><a href="/admin/houses"><i class="fa fa-home"></i> Дома</a></li>
+            </ul>
+        </li>
         <li>
             <a href="/admin/resource">
                 <i class="glyphicon glyphicon-certificate"></i> <span>Ресурсы</span>

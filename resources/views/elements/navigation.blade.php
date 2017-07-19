@@ -30,8 +30,8 @@
              </span>
             </a>
             <ul class="treeview-menu">
-                <li><a href="../../index.html"><i class="fa fa-circle-o"></i> Марки</a></li>
-                <li><a href="../../index2.html"><i class="fa fa-circle-o"></i> Модели</a></li>
+                <li><a href="/admin/warm_marka"><i class="fa fa-circle-o"></i> Марки</a></li>
+                <li><a href="/admin/warm_model"><i class="fa fa-circle-o"></i> Модели</a></li>
             </ul>
         </li>
         <li class="treeview">
@@ -42,8 +42,8 @@
              </span>
             </a>
             <ul class="treeview-menu">
-                <li><a href="../../index.html"><i class="fa fa-circle-o"></i> Марки</a></li>
-                <li><a href="../../index2.html"><i class="fa fa-circle-o"></i> Модели</a></li>
+                <li><a href="/admin/rashodomer_podacha_marka"><i class="fa fa-circle-o"></i> Марки</a></li>
+                <li><a href="/admin/rashodomer_podacha_model"><i class="fa fa-circle-o"></i> Модели</a></li>
             </ul>
         </li>
         <li class="treeview">
@@ -54,8 +54,8 @@
              </span>
             </a>
             <ul class="treeview-menu">
-                <li><a href="../../index.html"><i class="fa fa-circle-o"></i> Марки</a></li>
-                <li><a href="../../index2.html"><i class="fa fa-circle-o"></i> Модели</a></li>
+                <li><a href="/admin/rashodomer_obrabotka_marka"><i class="fa fa-circle-o"></i> Марки</a></li>
+                <li><a href="/admin/rashodomer_obrabotka_model"><i class="fa fa-circle-o"></i> Модели</a></li>
             </ul>
         </li>
         <li>

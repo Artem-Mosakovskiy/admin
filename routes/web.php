@@ -15,7 +15,7 @@ Route::get('/', 'Auth\LoginController@showLoginForm');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'NodesController@index');
 
 Route::get('/database_artisan_migrate', 'ArtisanMigrateController@migrate');
 
@@ -164,3 +164,15 @@ Route::post('/admin/houses/save', 'Admin\HouseController@save');
 Route::post('/admin/houses/update', 'Admin\HouseController@update');
 
 Route::get('/admin/cities/ajaxGetStreets/{city_id}', 'Admin\HouseController@ajaxGetStreets');
+Route::get('/admin/houses/ajaxGetHouses/{street_id}', 'Admin\HouseController@ajaxGetHouses');
+
+/* nodes crud */
+Route::get('/nodes', 'NodesController@index');
+Route::get('/admin/nodes/add', 'Admin\NodesController@add');
+Route::get('/admin/nodes/edit/{id}', 'Admin\NodesController@edit');
+Route::get('/admin/nodes/delete/{id}', 'Admin\NodesController@delete');
+
+Route::post('/admin/nodes/save', 'Admin\NodesController@save');
+Route::post('/admin/nodes/update', 'Admin\NodesController@update');
+
+Route::post('/admin/addPlace', 'Admin\NodesController@addPlace');

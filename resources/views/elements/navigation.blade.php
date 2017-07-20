@@ -1,7 +1,7 @@
 <ul class="sidebar-menu" data-widget="tree">
     <li class="header">Меню</li>
     <li>
-        <a href="/admin/users">
+        <a href="/nodes">
             <i class="fa fa-list"></i> <span>Узлы учета</span>
         </a>
     </li>

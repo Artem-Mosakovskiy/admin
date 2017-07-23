@@ -168,6 +168,7 @@ Route::get('/admin/houses/ajaxGetHouses/{street_id}', 'Admin\HouseController@aja
 
 /* nodes crud */
 Route::get('/nodes', 'NodesController@index');
+Route::get('/nodes/view/{id}', 'NodesController@view');
 Route::get('/admin/nodes/add', 'Admin\NodesController@add');
 Route::get('/admin/nodes/edit/{id}', 'Admin\NodesController@edit');
 Route::get('/admin/nodes/delete/{id}', 'Admin\NodesController@delete');

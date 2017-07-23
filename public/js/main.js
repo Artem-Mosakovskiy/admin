@@ -63,6 +63,26 @@ $(function () {
             }
         });
     });
+
+    $.datepicker.setDefaults({
+        format: 'yyyy-mm-dd'
+    });
+
+    var options = {
+        format: 'yyyy-mm-dd'
+    };
+
+    $('#data').datepicker(options);
+    $('#date1').datepicker(options);
+    $('#date2').datepicker(options);
+    $('#date3').datepicker(options);
+    $('#date4').datepicker(options);
+    $('#date5').datepicker(options);
+    $('#date6').datepicker({
+        format: 'yyyy-mm-dd',
+        orientation: "top"
+    });
+
 });
 
 function addOptions(select, object) {

@@ -4,12 +4,30 @@
     <section class="content">
         <div class="row">
             <div class="col-xs-12">
+                <div class="row">
+                    <form method="get" action="/nodes">
+                        <div class="col-md-3">
+                            {{ Form::select('city_id', $cities, null, ['class'=>'form-control']) }}
+                        </div>
+                        <div class="col-md-3">
+                            {{ Form::select('resource_type_id', $resources, null, ['class'=>'form-control']) }}
+                        </div>
+                        <div class="col-md-3">
+                            {{ Form::select('data', $years, null, ['class'=>'form-control']) }}
+                        </div>
+                        <div class="col-md-3">
+                            <button class="btn btn-info" type="submit">Фильтровать</button>
+                        </div>
+                    </form>
+                </div><br>
                 <div class="box">
                     <div class="box-header">
                         <h3 class="box-title">Узлы учета</h3>
 
                         <div class="box-tools">
-                            <a href="/admin/nodes/add" class="btn btn-success">Добавить</a>
+                            @if(Auth::user()->hasRole(1))
+                                <a href="/admin/nodes/add" class="btn btn-success">Добавить</a>
+                            @endif
                         </div>
                     </div>
                     <!-- /.box-header -->
@@ -29,10 +47,10 @@
                                 @foreach($nodes as $item)
                                     <tr>
                                         <td>{{ $item->id }}</td>
-                                        <td>{{ $item->house_id }}</td>
-                                        <td>{{ $item->resource_type_id }}</td>
-                                        <td>{{ $item->teplo_model_id }}</td>
-                                        <td>{{ $item->date }}</td>
+                                        <td>{{ $item->house->city->city }} {{ $item->house->street->street }} {{ $item->house->house }}</td>
+                                        <td>{{ $item->resource->type }}</td>
+                                        <td>{{ $item->teplo->marka->marka }} {{ $item->teplo->model }}</td>
+                                        <td>{{ $item->data }}</td>
                                         <td>
                                             <a href="/nodes/view/{{ $item->id }}" class="label label-primary">Просмотр</a>
                                             @if(Auth::user()->hasRole(1))

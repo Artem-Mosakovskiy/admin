@@ -15,32 +15,32 @@ class CreateNodesTable extends Migration
     {
         Schema::create('nodes', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('house_id');
-            $table->integer('resource_type_id');
-            $table->integer('uk_company_id');
-            $table->integer('rso_company_id');
+            $table->integer('house_id')->nullable();
+            $table->integer('resource_type_id')->nullable();
+            $table->integer('uk_company_id')->nullable();
+            $table->integer('rso_company_id')->nullable();
 
-            $table->integer('teplo_model_id');
-            $table->integer('teplo_model_nomer');
+            $table->integer('teplo_model_id')->nullable();
+            $table->integer('teplo_model_nomer')->nullable();
 
-            $table->integer('rashodomer_pod_model_id');
-            $table->integer('rashodomer_pod_model_nomer');
+            $table->integer('rashodomer_pod_model_id')->nullable();
+            $table->integer('rashodomer_pod_model_nomer')->nullable();
 
-            $table->integer('rashodomer_obr_model_id');
-            $table->integer('rashodomer_obr_model_nomer');
+            $table->integer('rashodomer_obr_model_id')->nullable();
+            $table->integer('rashodomer_obr_model_nomer')->nullable();
 
-            $table->integer('termopar_id');
-            $table->integer('termopar_nomer');
+            $table->integer('termopar_id')->nullable();
+            $table->integer('termopar_nomer')->nullable();
 
-            $table->integer('davlenie_pod_id');
-            $table->integer('davlenie_pod_nomer');
+            $table->integer('davlenie_pod_id')->nullable();
+            $table->integer('davlenie_pod_nomer')->nullable();
 
-            $table->integer('davlenie_obr_id');
-            $table->integer('davlenie_obr_nomer');
+            $table->integer('davlenie_obr_id')->nullable();
+            $table->integer('davlenie_obr_nomer')->nullable();
 
-            $table->string('other');
+            $table->string('other')->nullable();
 
-            $table->dateTime('data');
+            $table->dateTime('data')->nullable();
 
             $table->timestamps();
         });

@@ -13,13 +13,16 @@ class CreateHousesTable extends Migration
      */
     public function up()
     {
-        Schema::create('houses', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('house');
-            $table->integer('city_id');
-            $table->integer('street_id');
-            $table->integer('deleted')->default(0);
-        });
+        if(!Schema::hasTable('houses')){
+            Schema::create('houses', function (Blueprint $table) {
+                $table->increments('id');
+                $table->string('house');
+                $table->integer('city_id');
+                $table->integer('street_id');
+                $table->integer('deleted')->default(0);
+            });
+        }
+
     }
 
     /**

@@ -96,6 +96,8 @@
     <link rel="stylesheet" href="/css/AdminLTE.min.css">
     <link rel="stylesheet" href="/css/all-skins.min.css">
     <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/datapicker/datepicker3.css">
+    <link rel="stylesheet" href="/css/jquery-ui.css">
 
     <!-- Google Font -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
@@ -177,9 +179,11 @@
 </div>
 
 <script src="/js/jquery.js"></script>
+<script src="/js/jquery-ui.js"></script>
 <script src="/css/bootstrap/js/bootstrap.min.js"></script>
 <script src="/js/adminlte.min.js"></script>
 <script src="/js/main.js?{{ rand(1,10000) }}"></script>
+<script src="/js/datapicker/bootstrap-datepicker.js"></script>
 
 <script>
     $(document).ready(function () {

@@ -11,7 +11,7 @@
                     </div>
                     <!-- /.box-header -->
                     <!-- form start -->
-                    <form role="form" action="/admin/power_podacha/save" method="post">
+                    <form role="form" action="/admin/power/save" method="post">
                         {{ csrf_field() }}
                         <div class="box-body">
                             <div class="{{ $errors->has('device') ? 'form-group has-error' : 'form-group' }}">

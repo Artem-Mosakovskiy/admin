@@ -38,7 +38,7 @@ class NodesController extends AdminController
 
         $teplo_model = WarmModel::where('deleted', 0)->pluck('model','id');
         $rashodomer_pod = RashodomerPodachaModel::where('deleted', 0)->pluck('model','id');
-        $rashodomer_obr = RashodomerObrabotkaModel::where('deleted', 0)->pluck('model','id');
+       // $rashodomer_obr = RashodomerObrabotkaModel::where('deleted', 0)->pluck('model','id');
 
         $termopar = KomplektTermopar::where('deleted', 0)->pluck('complect','id');
 
@@ -54,7 +54,7 @@ class NodesController extends AdminController
             'rcompanies' => [null => 'Выберите компанию'] + $rcompanies->toArray(),
             'teplo_model' => [null => 'Выберите модель тепловычислителя'] + $teplo_model->toArray(),
             'rashodomer_pod' => [null => 'Выберите расходомер на подаче'] + $rashodomer_pod->toArray(),
-            'rashodomer_obr' => [null => 'Выберите расходомер на обработке'] + $rashodomer_obr->toArray(),
+            'rashodomer_obr' => [null => 'Выберите расходомер на обработке'] + $rashodomer_pod->toArray(),
             'termopar' => [null => 'Выберите комплект термопар'] + $termopar->toArray(),
             'davlenie_pod' => [null => 'Выберите марку датчика давления на подаче'] + $davlenie_pod->toArray(),
             'davlenie_obr' => [null => 'Выберите марку датчика давления на обработке'] + $davlenie_obr->toArray(),

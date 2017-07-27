@@ -83,6 +83,8 @@ $(function () {
         orientation: "top"
     });
 
+    
+
 });
 
 function addOptions(select, object) {
@@ -108,4 +110,34 @@ function ajaxOptions(selectChandedName, selectToChange, url) {
             $(selectToChange + ' option[value=0]').attr('selected', true);
         })
     });
+}
+
+var urlobj;
+
+function BrowseServer(obj)
+{
+    urlobj = obj;
+    OpenServerBrowser(
+        'http://admin/filemanager/show',
+        screen.width * 0.7,
+        screen.height * 0.7 ) ;
+}
+
+function OpenServerBrowser( url, width, height )
+{
+    var iLeft = (screen.width - width) / 2 ;
+    var iTop = (screen.height - height) / 2 ;
+    var sOptions = "toolbar=no,status=no,resizable=yes,dependent=yes" ;
+    sOptions += ",width=" + width ;
+    sOptions += ",height=" + height ;
+    sOptions += ",left=" + iLeft ;
+    sOptions += ",top=" + iTop ;
+    var oWindow = window.open( url, "BrowseWindow", sOptions ) ;
+}
+
+function SetUrl( url, width, height, alt ) {
+    // var a = url.split("/");
+    // if(a.length>0) url = a[a.length -1 ];
+    url = url.replace("http://admin/filemanager/userfiles/", "");
+    document.getElementById(urlobj).value = url;
 }

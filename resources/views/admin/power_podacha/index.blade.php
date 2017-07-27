@@ -6,10 +6,10 @@
             <div class="col-xs-12">
                 <div class="box">
                     <div class="box-header">
-                        <h3 class="box-title">Датчики давления на подаче</h3>
+                        <h3 class="box-title">Датчики давления</h3>
 
                         <div class="box-tools">
-                            <a href="/admin/power_podacha/add" class="btn btn-success">Добавить</a>
+                            <a href="/admin/power/add" class="btn btn-success">Добавить</a>
                         </div>
                     </div>
                     <!-- /.box-header -->
@@ -28,8 +28,8 @@
                                         <td>{{ $item->id }}</td>
                                         <td>{{ $item->device }}</td>
                                         <td>
-                                            <a href="/admin/power_podacha/edit/{{ $item->id }}" class="label label-warning">Редактировать</a>
-                                            <a href="/admin/power_podacha/delete/{{ $item->id }}" class="label label-danger">Удалить</a>
+                                            <a href="/admin/power/edit/{{ $item->id }}" class="label label-warning">Редактировать</a>
+                                            <a href="/admin/power/delete/{{ $item->id }}" class="label label-danger">Удалить</a>
                                         </td>
                                     </tr>
                                 @endforeach

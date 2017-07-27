@@ -47,9 +47,17 @@
                                 @foreach($nodes as $item)
                                     <tr>
                                         <td>{{ $item->id }}</td>
-                                        <td>{{ $item->house->city->city }} {{ $item->house->street->street }} {{ $item->house->house }}</td>
-                                        <td>{{ $item->resource->type }}</td>
-                                        <td>{{ $item->teplo->marka->marka }} {{ $item->teplo->model }}</td>
+                                        @if($item->house)
+                                            <td>{{ $item->house->city->city }} {{ $item->house->street->street }} {{ $item->house->house }}</td>
+                                            @else
+                                            <td></td>
+                                        @endif
+                                        <td>{{ $item->resource ? $item->resource->type : '' }}</td>
+                                        @if($item->teplo)
+                                            <td>{{ $item->teplo->marka->marka }} {{ $item->teplo->model }}</td>
+                                            @else
+                                            <td></td>
+                                        @endif
                                         <td>{{ $item->data }}</td>
                                         <td>
                                             <a href="/nodes/view/{{ $item->id }}" class="label label-primary">Просмотр</a>

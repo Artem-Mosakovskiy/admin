@@ -178,7 +178,7 @@ return [
         App\Providers\RouteServiceProvider::class,
 
         \Collective\Html\HtmlServiceProvider::class,
-
+        Pqb\FilemanagerLaravel\FilemanagerLaravelServiceProvider::class,
 
     ],
 
@@ -232,7 +232,7 @@ return [
         'Html' => Collective\Html\HtmlFacade::class,
         'Form' => Collective\Html\FormFacade::class,
         'Input' => \Illuminate\Support\Facades\Input::class,
-
+        'FilemanagerLaravel'=> Pqb\FilemanagerLaravel\Facades\FilemanagerLaravel::class,
     ],
 
 ];

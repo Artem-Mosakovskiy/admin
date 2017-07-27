@@ -33,7 +33,7 @@ class DavlenieNaPodacheController extends AdminController
         $complect->save();
 
         Session::flash('success', 'Датчик давления добавлен');
-        return redirect('/admin/power_podacha');
+        return redirect('/admin/power');
     }
 
     public function edit($id){
@@ -50,12 +50,12 @@ class DavlenieNaPodacheController extends AdminController
         $device->save();
 
         Session::flash('success', 'Датчик давления успешно отредактирован');
-        return redirect('/admin/power_podacha');
+        return redirect('/admin/power');
     }
 
     public function delete($id){
         DavlenieNaPodache::findOrFail($id)->delete();
         Session::flash('success', 'Датчик давления удален');
-        return redirect('/admin/power_podacha');
+        return redirect('/admin/power');
     }
 }

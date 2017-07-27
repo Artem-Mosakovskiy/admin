@@ -54,17 +54,17 @@
         </li>
         <li class="treeview">
             <a href="#">
-                <i class="fa fa-dashboard"></i> <span>Расходомеры на подаче</span>
+                <i class="fa fa-dashboard"></i> <span>Расходомеры</span>
              <span class="pull-right-container">
                <i class="fa fa-angle-left pull-right"></i>
              </span>
             </a>
             <ul class="treeview-menu">
-                <li><a href="/admin/rashodomer_podacha_marka"><i class="fa fa-circle-o"></i> Марки</a></li>
-                <li><a href="/admin/rashodomer_podacha_model"><i class="fa fa-circle-o"></i> Модели</a></li>
+                <li><a href="/admin/rashodomer_marka"><i class="fa fa-circle-o"></i> Марки</a></li>
+                <li><a href="/admin/rashodomer_model"><i class="fa fa-circle-o"></i> Модели</a></li>
             </ul>
         </li>
-        <li class="treeview">
+      {{--  <li class="treeview">
             <a href="#">
                 <i class="fa fa-dashboard"></i> <span>Расходомеры на обработке</span>
              <span class="pull-right-container">
@@ -75,24 +75,36 @@
                 <li><a href="/admin/rashodomer_obrabotka_marka"><i class="fa fa-circle-o"></i> Марки</a></li>
                 <li><a href="/admin/rashodomer_obrabotka_model"><i class="fa fa-circle-o"></i> Модели</a></li>
             </ul>
-        </li>
+        </li>--}}
         <li>
             <a href="/admin/complect">
                 <i class="fa fa-microchip"></i> <span>Комплект термопар</span>
             </a>
         </li>
-        <li class="treeview">
-            <a href="#">
+        <li>
+            <a href="/admin/power">
                 <i class="fa fa-tachometer"></i> <span>Датчики давления</span>
-             <span class="pull-right-container">
-               <i class="fa fa-angle-left pull-right"></i>
-             </span>
             </a>
-            <ul class="treeview-menu">
-                <li><a href="/admin/power_podacha"><i class="fa fa-circle-o"></i> На подаче</a></li>
-                <li><a href="/admin/power_obrabotka"><i class="fa fa-circle-o"></i> На обработке</a></li>
-            </ul>
         </li>
+        <li class="header">Редактируемые справочники</li>
+        <li>
+            <a href="/admin/file_types">
+                <i class="fa fa-list"></i> <span>Типы файлов</span>
+            </a>
+        </li>
+
+        {{--  <li class="treeview">
+              <a href="#">
+                  <i class="fa fa-tachometer"></i> <span>Датчики давления</span>
+               <span class="pull-right-container">
+                 <i class="fa fa-angle-left pull-right"></i>
+               </span>
+              </a>
+              <ul class="treeview-menu">
+                  <li><a href="/admin/power_podacha"><i class="fa fa-circle-o"></i> На подаче</a></li>
+                  <li><a href="/admin/power_obrabotka"><i class="fa fa-circle-o"></i> На обработке</a></li>
+              </ul>
+          </li>--}}
     @endif
 
     {{-- <li class="treeview">

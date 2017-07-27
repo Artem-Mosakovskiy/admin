@@ -15,9 +15,9 @@ class RashodomerPodachaMarkaController extends CRUDMarksController
     }
 
     public $view_directory = 'rashodomer_podacha_marka';
-    public $route = 'rashodomer_podacha_marka';
+    public $route = 'rashodomer_marka';
 
-    public $add_message = 'Марка расходомера на подаче успешно добавлена';
-    public $edit_message = 'Марка расходомера на подаче успешно отредактирована';
-    public $delete_message = 'Марка расходомера на подаче успешно удалена';
+    public $add_message = 'Марка расходомера успешно добавлена';
+    public $edit_message = 'Марка расходомера успешно отредактирована';
+    public $delete_message = 'Марка расходомера успешно удалена';
 }

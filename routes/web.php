@@ -65,22 +65,22 @@ Route::post('/admin/complect/save', 'Admin\KomplectTermoparController@save');
 Route::post('/admin/complect/update', 'Admin\KomplectTermoparController@update');
 
 /* power_podacha types CRUD */
-Route::get('/admin/power_podacha', 'Admin\DavlenieNaPodacheController@index');
-Route::get('/admin/power_podacha/add', 'Admin\DavlenieNaPodacheController@add');
-Route::get('/admin/power_podacha/edit/{id}', 'Admin\DavlenieNaPodacheController@edit');
-Route::get('/admin/power_podacha/delete/{id}', 'Admin\DavlenieNaPodacheController@delete');
+Route::get('/admin/power', 'Admin\DavlenieNaPodacheController@index');
+Route::get('/admin/power/add', 'Admin\DavlenieNaPodacheController@add');
+Route::get('/admin/power/edit/{id}', 'Admin\DavlenieNaPodacheController@edit');
+Route::get('/admin/power/delete/{id}', 'Admin\DavlenieNaPodacheController@delete');
 
-Route::post('/admin/power_podacha/save', 'Admin\DavlenieNaPodacheController@save');
-Route::post('/admin/power_podacha/update', 'Admin\DavlenieNaPodacheController@update');
+Route::post('/admin/power/save', 'Admin\DavlenieNaPodacheController@save');
+Route::post('/admin/power/update', 'Admin\DavlenieNaPodacheController@update');
 
 /* power_obrabotka types CRUD */
-Route::get('/admin/power_obrabotka', 'Admin\DavlenieNaObrabotkeController@index');
+/*Route::get('/admin/power_obrabotka', 'Admin\DavlenieNaObrabotkeController@index');
 Route::get('/admin/power_obrabotka/add', 'Admin\DavlenieNaObrabotkeController@add');
 Route::get('/admin/power_obrabotka/edit/{id}', 'Admin\DavlenieNaObrabotkeController@edit');
 Route::get('/admin/power_obrabotka/delete/{id}', 'Admin\DavlenieNaObrabotkeController@delete');
 
 Route::post('/admin/power_obrabotka/save', 'Admin\DavlenieNaObrabotkeController@save');
-Route::post('/admin/power_obrabotka/update', 'Admin\DavlenieNaObrabotkeController@update');
+Route::post('/admin/power_obrabotka/update', 'Admin\DavlenieNaObrabotkeController@update');*/
 
 /* warm_marka types CRUD */
 Route::get('/admin/warm_marka', 'Admin\WarmMarkaController@index');
@@ -101,40 +101,40 @@ Route::post('/admin/warm_model/save', 'Admin\WarmModelController@save');
 Route::post('/admin/warm_model/update', 'Admin\WarmModelController@update');
 
 /* rashodomer_podacha_model types CRUD */
-Route::get('/admin/rashodomer_podacha_model', 'Admin\RashodomerPodachaModelController@index');
-Route::get('/admin/rashodomer_podacha_model/add', 'Admin\RashodomerPodachaModelController@add');
-Route::get('/admin/rashodomer_podacha_model/edit/{id}', 'Admin\RashodomerPodachaModelController@edit');
-Route::get('/admin/rashodomer_podacha_model/delete/{id}', 'Admin\RashodomerPodachaModelController@delete');
+Route::get('/admin/rashodomer_model', 'Admin\RashodomerPodachaModelController@index');
+Route::get('/admin/rashodomer_model/add', 'Admin\RashodomerPodachaModelController@add');
+Route::get('/admin/rashodomer_model/edit/{id}', 'Admin\RashodomerPodachaModelController@edit');
+Route::get('/admin/rashodomer_model/delete/{id}', 'Admin\RashodomerPodachaModelController@delete');
 
-Route::post('/admin/rashodomer_podacha_model/save', 'Admin\RashodomerPodachaModelController@save');
-Route::post('/admin/rashodomer_podacha_model/update', 'Admin\RashodomerPodachaModelController@update');
+Route::post('/admin/rashodomer_model/save', 'Admin\RashodomerPodachaModelController@save');
+Route::post('/admin/rashodomer_model/update', 'Admin\RashodomerPodachaModelController@update');
 
 /* rashodomer_podacha_marka types CRUD */
-Route::get('/admin/rashodomer_podacha_marka', 'Admin\RashodomerPodachaMarkaController@index');
-Route::get('/admin/rashodomer_podacha_marka/add', 'Admin\RashodomerPodachaMarkaController@add');
-Route::get('/admin/rashodomer_podacha_marka/edit/{id}', 'Admin\RashodomerPodachaMarkaController@edit');
-Route::get('/admin/rashodomer_podacha_marka/delete/{id}', 'Admin\RashodomerPodachaMarkaController@delete');
+Route::get('/admin/rashodomer_marka', 'Admin\RashodomerPodachaMarkaController@index');
+Route::get('/admin/rashodomer_marka/add', 'Admin\RashodomerPodachaMarkaController@add');
+Route::get('/admin/rashodomer_marka/edit/{id}', 'Admin\RashodomerPodachaMarkaController@edit');
+Route::get('/admin/rashodomer_marka/delete/{id}', 'Admin\RashodomerPodachaMarkaController@delete');
 
-Route::post('/admin/rashodomer_podacha_marka/save', 'Admin\RashodomerPodachaMarkaController@save');
-Route::post('/admin/rashodomer_podacha_marka/update', 'Admin\RashodomerPodachaMarkaController@update');
+Route::post('/admin/rashodomer_marka/save', 'Admin\RashodomerPodachaMarkaController@save');
+Route::post('/admin/rashodomer_marka/update', 'Admin\RashodomerPodachaMarkaController@update');
 
 /* rashodomer_obrabotka_model types CRUD */
-Route::get('/admin/rashodomer_obrabotka_model', 'Admin\RashodomerObrabotkaModelController@index');
+/*Route::get('/admin/rashodomer_obrabotka_model', 'Admin\RashodomerObrabotkaModelController@index');
 Route::get('/admin/rashodomer_obrabotka_model/add', 'Admin\RashodomerObrabotkaModelController@add');
 Route::get('/admin/rashodomer_obrabotka_model/edit/{id}', 'Admin\RashodomerObrabotkaModelController@edit');
 Route::get('/admin/rashodomer_obrabotka_model/delete/{id}', 'Admin\RashodomerObrabotkaModelController@delete');
 
 Route::post('/admin/rashodomer_obrabotka_model/save', 'Admin\RashodomerObrabotkaModelController@save');
-Route::post('/admin/rashodomer_obrabotka_model/update', 'Admin\RashodomerObrabotkaModelController@update');
+Route::post('/admin/rashodomer_obrabotka_model/update', 'Admin\RashodomerObrabotkaModelController@update');*/
 
 /* rashodomer_obrabotka_marka types CRUD */
-Route::get('/admin/rashodomer_obrabotka_marka', 'Admin\RashodomerObrabotkaMarkaController@index');
+/*Route::get('/admin/rashodomer_obrabotka_marka', 'Admin\RashodomerObrabotkaMarkaController@index');
 Route::get('/admin/rashodomer_obrabotka_marka/add', 'Admin\RashodomerObrabotkaMarkaController@add');
 Route::get('/admin/rashodomer_obrabotka_marka/edit/{id}', 'Admin\RashodomerObrabotkaMarkaController@edit');
 Route::get('/admin/rashodomer_obrabotka_marka/delete/{id}', 'Admin\RashodomerObrabotkaMarkaController@delete');
 
 Route::post('/admin/rashodomer_obrabotka_marka/save', 'Admin\RashodomerObrabotkaMarkaController@save');
-Route::post('/admin/rashodomer_obrabotka_marka/update', 'Admin\RashodomerObrabotkaMarkaController@update');
+Route::post('/admin/rashodomer_obrabotka_marka/update', 'Admin\RashodomerObrabotkaMarkaController@update');*/
 
 /* cities crud */
 Route::get('/admin/cities', 'Admin\CitiesController@index');
@@ -177,3 +177,10 @@ Route::post('/admin/nodes/save', 'Admin\NodesController@save');
 Route::post('/admin/nodes/update', 'Admin\NodesController@update');
 
 Route::post('/admin/addPlace', 'Admin\NodesController@addPlace');
+
+/* filemanager */
+Route::group(['prefix' => 'filemanager','middleware' => 'auth'], function() {
+    Route::get('show', 'FilemanagerLaravelController@getShow');
+    Route::get('connectors', 'FilemanagerLaravelController@getConnectors');
+    Route::post('connectors', 'FilemanagerLaravelController@postConnectors');
+});

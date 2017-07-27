@@ -52,7 +52,7 @@ class StreetsController extends AdminController
     }
 
     public function update(Request $request){
-        $city = City::whereId($request->id)->first();
+        $city = Street::whereId($request->id)->first();
         $city->fill($request->except('_token'));
         $city->save();
 
@@ -61,7 +61,7 @@ class StreetsController extends AdminController
     }
 
     public function delete($id){
-        $city = City::findOrFail($id);
+        $city = Street::findOrFail($id);
         $city->deleted = 1;
         $city->save();
 

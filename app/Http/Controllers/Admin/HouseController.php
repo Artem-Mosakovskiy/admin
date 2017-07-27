@@ -79,13 +79,17 @@ class HouseController extends AdminController
     }
 
     public function ajaxGetStreets($city_id){
-        $streets = Street::where('city_id', $city_id)->pluck('street', 'id');
+        $streets = Street::where('city_id', $city_id)
+            ->where('deleted', 0)
+            ->pluck('street', 'id');
 
         return response()->json([0 => 'Выберите улицу'] + $streets->toArray());
     }
 
     public function ajaxGetHouses($street_id){
-        $houses = House::where('street_id', $street_id)->pluck('house', 'id');
+        $houses = House::where('street_id', $street_id)
+            ->where('deleted', 0)
+            ->pluck('house', 'id');
 
         return response()->json([0 => 'Выберите дом'] + $houses->toArray());
     }

@@ -16,9 +16,9 @@ class RashodomerPodachaModelController extends CRUDModelController
     }
 
     public $view_directory = 'rashodomer_podacha_model';
-    public $route = 'rashodomer_podacha_model';
+    public $route = 'rashodomer_model';
 
-    public $add_message = 'Модель расходомера на подаче успешно добавлена';
-    public $edit_message = 'Модель расходомера на подаче успешно отредактирована';
-    public $delete_message = 'Модель расходомера на подаче успешно удалена';
+    public $add_message = 'Модель расходомера успешно добавлена';
+    public $edit_message = 'Модель расходомера успешно отредактирована';
+    public $delete_message = 'Модель расходомера успешно удалена';
 }

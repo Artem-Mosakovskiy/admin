@@ -178,6 +178,17 @@ Route::post('/admin/nodes/update', 'Admin\NodesController@update');
 
 Route::post('/admin/addPlace', 'Admin\NodesController@addPlace');
 
+/* file_types crud */
+Route::get('/admin/file_types', 'Admin\FileTypeController@index');
+Route::get('/admin/file_types/add', 'Admin\FileTypeController@add');
+Route::get('/admin/file_types/edit/{id}', 'Admin\FileTypeController@edit');
+Route::get('/admin/file_types/delete/{id}', 'Admin\FileTypeController@delete');
+
+Route::post('/admin/file_types/save', 'Admin\FileTypeController@save');
+Route::post('/admin/file_types/update', 'Admin\FileTypeController@update');
+
+
+
 /* filemanager */
 Route::group(['prefix' => 'filemanager','middleware' => 'auth'], function() {
     Route::get('show', 'FilemanagerLaravelController@getShow');

@@ -179,6 +179,7 @@ return [
 
         \Collective\Html\HtmlServiceProvider::class,
         Pqb\FilemanagerLaravel\FilemanagerLaravelServiceProvider::class,
+        \App\Providers\HelperServiceProvider::class,
 
     ],
 
@@ -233,6 +234,8 @@ return [
         'Form' => Collective\Html\FormFacade::class,
         'Input' => \Illuminate\Support\Facades\Input::class,
         'FilemanagerLaravel'=> Pqb\FilemanagerLaravel\Facades\FilemanagerLaravel::class,
+
+        'Helper' => \App\Helpers\Helpers::class,
     ],
 
 ];

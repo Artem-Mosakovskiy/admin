@@ -5,10 +5,13 @@ namespace App\Http\Controllers\Admin;
 use App\City;
 use App\DavlenieNaObrabotke;
 use App\DavlenieNaPodache;
+use App\File;
+use App\FileType;
 use App\House;
 use App\Http\Controllers\AdminController;
 use App\KomplektTermopar;
 use App\Node;
+use App\NodesFiles;
 use App\RashodomerObrabotkaModel;
 use App\RashodomerPodachaModel;
 use App\ResourceType;
@@ -45,6 +48,8 @@ class NodesController extends AdminController
         $davlenie_pod = DavlenieNaPodache::where('deleted', 0)->pluck('device','id');
         $davlenie_obr = DavlenieNaObrabotke::where('deleted', 0)->pluck('device','id');
 
+        $file_types = FileType::where('deleted', 0)->pluck('type', 'id');
+
         return [
             'cities' => [null => 'Выберите населенный пункт'] + $cities->toArray(),
             'streets' => [null => 'Выберите улицу'] /*+ $streets->toArray()*/,
@@ -58,7 +63,7 @@ class NodesController extends AdminController
             'termopar' => [null => 'Выберите комплект термопар'] + $termopar->toArray(),
             'davlenie_pod' => [null => 'Выберите марку датчика давления на подаче'] + $davlenie_pod->toArray(),
             'davlenie_obr' => [null => 'Выберите марку датчика давления на обработке'] + $davlenie_obr->toArray(),
-
+            'file_types' => [null => 'Выберите тип файла'] + $file_types->toArray(),
         ];
     }
 
@@ -67,11 +72,26 @@ class NodesController extends AdminController
     }
 
     public function save(Request $request){
-        //dd($request->all());
+        //dd($request->ufiles);
         $node = new Node();
-        $node->fill($request->except('_token'));
-
+        $node->fill($request->except(['_token', 'files']));
         $node->save();
+
+        $files = [];
+
+        foreach ($request->ufiles as $item){
+            if(!is_null($item['file'])){
+                $file = File::create($item);
+                $files[] = $file->id;
+            }
+        }
+
+        foreach ($files as $item){
+            NodesFiles::create([
+                'node_id' => $node->id,
+                'file_id' => $item
+            ]);
+        }
 
         Session::flash('success', 'Узел учета добавлен');
         return redirect('/nodes');
@@ -79,6 +99,9 @@ class NodesController extends AdminController
 
     public function edit($id){
         $node = Node::whereId($id)->with('house')->first();
+
+        $node_files = NodesFiles::where('node_id', $id)->with('file')->get();
+
 
         $array = $this->getSelectArray();
         $array['node'] = $node;
@@ -94,17 +117,36 @@ class NodesController extends AdminController
             $array['streets'] = [null => 'Выберите улицу'] + $streets->toArray();
             $array['houses'] = [null => 'Выберите дом'] + $houses->toArray();
         }
+        $array['nodes_files'] = $node_files;
 
 
         return view('admin.nodes.edit', $array);
     }
 
     public function update(Request $request){
-        //dd($request->except('_token'));
+        //dd($request->ufiles);
         $node = Node::whereId($request->id)->first();
-        $node->fill($request->except('_token'));
-
+        $node->fill($request->except(['_token', 'files']));
         $node->save();
+
+        NodesFiles::where('node_id', $request->id)->delete();
+
+        $files = [];
+
+        foreach ($request->ufiles as $item){
+            if(!is_null($item['file'])){
+                $file = File::create($item);
+                $files[] = $file->id;
+            }
+
+        }
+
+        foreach ($files as $item){
+            NodesFiles::create([
+                'node_id' => $node->id,
+                'file_id' => $item
+            ]);
+        }
 
         Session::flash('success', 'Узел учета успешно отредактирован');
         return redirect('/nodes');

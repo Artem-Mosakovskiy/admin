@@ -96,8 +96,40 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="box-footer">
-                            <button type="submit" class="btn btn-primary">Редактировать</button>
+
+                        <div class="box-body filesBox">
+                            <script>
+                                var counter = 0;
+                            </script>
+                            @foreach($nodes_files as $i => $item)
+                                @if($item->file)
+                                    <div class="form-group files">
+                                        <div class="col-md-6">
+                                            <label for="exampleInputEmail1">Файл (не обязательно)</label>
+                                            <div id="upload_file">
+                                                {{ Form::text('ufiles['.$i.'][file]', $item->file->file, ['class' => 'form-control', 'id' => 'file']) }}
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label>Тип файла</label>
+                                            {{ Form::select('ufiles['.$i.'][file_type_id]', $file_types, $item->file->file_type_id, ['class' => 'form-control', 'id' => 'file_type']) }}
+                                        </div>
+                                        <div class="col-md-12">
+                                            <label for="exampleInputEmail1">Примечание</label>
+                                            {{ Form::text('ufiles['.$i.'][note]', $item->file->note, ['class' => 'form-control', 'id' => 'note']) }}
+                                        </div>
+                                        <div class="col-md-12">
+                                            <button type="button" class="btn btn-danger deletePhoto">Удалить</button>
+                                        </div>
+                                    </div>
+                                    <script> counter = '{{ $i }}'; </script>
+                                @endif
+                            @endforeach
+                        </div>
+                        <div class="box-body">
+                            <div class="col-md-12">
+                                <button type="button" class="btn pull-right" id="addFile">Еще файл</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -253,6 +285,9 @@
                                     {!! $errors->first('davlenie_obr_date', '<span class="help-block">:message</label>') !!}
                                 </div>
                             </div>
+                        </div>
+                        <div class="box-footer">
+                            <button type="submit" class="btn btn-primary">Добавить</button>
                         </div>
                     </div>
                 </div>

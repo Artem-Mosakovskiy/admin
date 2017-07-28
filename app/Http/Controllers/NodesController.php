@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\City;
 use App\House;
 use App\Node;
+use App\NodesFiles;
 use App\ResourceType;
 use App\Street;
 use Illuminate\Http\Request;
@@ -52,8 +53,11 @@ class NodesController extends Controller
     public function view($id){
         $node = Node::findOrFail($id);
 
+        $nodes_files = NodesFiles::where('node_id', $id)->with('file')->get();
+
         return view('nodes.view', [
-            'node' => $node
+            'node' => $node,
+            'nodes_files' => $nodes_files
         ]);
     }
 }

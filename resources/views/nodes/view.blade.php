@@ -132,6 +132,43 @@
                             </table>
                         </div>
                     </div>
+
+                    @if($nodes_files->count())
+                        <div class="box box-primary collapsed-box">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">Файлы</h3>
+
+                            <div class="box-tools pull-right">
+                                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
+                                </button>
+                                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                            </div>
+                        </div>
+                            <div class="box-body" style="display:none;">
+                                <ul class="products-list product-list-in-box">
+                                    @foreach($nodes_files as $item)
+                                        <li class="item col-md-6">
+                                            <div class="product-img">
+                                                <a target="_blank" href="/filemanager/userfiles/{{ $item->file->file }}">
+                                                    @if(Helper::isImg('/filemanager/userfiles/' . $item->file->file))
+                                                        <img src="/filemanager/userfiles/{{ $item->file->file }}" alt="Image">
+                                                    @else
+                                                        <img src="/images/file.png" alt="Image">
+                                                    @endif
+                                                </a>
+                                            </div>
+                                            <div class="product-info">
+                                                <a target="_blank" href="/filemanager/userfiles/{{ $item->file->file }}" class="product-title">{{ $item->file->note }}</a>
+                                                <span class="product-description">
+                                                    {{ $item->file->type->type }}
+                                                </span>
+                                            </div>
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                    </div>
+                    @endif
                 </div>
             </div>
         </div>

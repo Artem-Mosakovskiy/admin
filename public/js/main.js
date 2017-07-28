@@ -1,3 +1,5 @@
+var $urlobj;
+
 $(function () {
     ajaxOptions('select[name=city_id]', 'select[name=street_id]','/admin/cities/ajaxGetStreets/');
     ajaxOptions('select[name=street_id]', 'select[name=house_id]','/admin/houses/ajaxGetHouses/');
@@ -36,10 +38,10 @@ $(function () {
         //$('#addCityModal').find('select').val(null);
         active_select = false;
     });
-    
+
     $('#addPlaceForm').on('submit', function (e) {
         e.preventDefault();
-        
+
         $.post('/admin/addPlace', $(this).serialize(), function (data) {
             if(!data.status){
                 $('#addPlaceForm #message').text(data.message);
@@ -83,9 +85,63 @@ $(function () {
         orientation: "top"
     });
 
-    
+    $('#addFile').on('click', function(){
+        $('.deletePhoto').show();
+        var $cloned = $('.filesBox .files:first').clone(true);
+        $cloned.find('input').val('');
+
+        counter++;
+
+        $cloned.find('#file').attr('name', 'ufiles[' + counter + '][file]');
+        $cloned.find('#file_type').attr('name', 'ufiles[' + counter + '][file_type_id]');
+        $cloned.find('#note').attr('name', 'ufiles[' + counter + '][note]');
+
+        $('.filesBox').append($cloned);
+    });
+
+    $('.deletePhoto').on('click', function () {
+        console.log('sdfsdf');
+        var count_files = $('.filesBox .files').length;
+        if(count_files > 1){
+            $(this).parents('.files').remove();
+        }else {
+            $(this).parents('.files').find('input').val('');
+            $('.deletePhoto').parents('.files').find('select option:selected').removeAttr('selected');
+            $(this).hide();
+        }
+
+    });
+
+    $('#upload_file').on('click', function(e){
+        e.preventDefault();
+
+        $urlobj = $(this).find('input');
+
+        OpenServerBrowser(
+            'http://admin/filemanager/show',
+            screen.width * 0.7,
+            screen.height * 0.7 ) ;
+
+    });
 
 });
+
+function SetUrl( url ) {
+    url = url.replace("http://admin/filemanager/userfiles/", "");
+    $urlobj.val(url);
+}
+
+function OpenServerBrowser( url, width, height )
+{
+    var iLeft = (screen.width - width) / 2 ;
+    var iTop = (screen.height - height) / 2 ;
+    var sOptions = "toolbar=no,status=no,resizable=yes,dependent=yes" ;
+    sOptions += ",width=" + width ;
+    sOptions += ",height=" + height ;
+    sOptions += ",left=" + iLeft ;
+    sOptions += ",top=" + iTop ;
+    var oWindow = window.open( url, "BrowseWindow", sOptions ) ;
+}
 
 function addOptions(select, object) {
     $('select[name=' + select + ']' + ' option:selected').attr('selected', false);
@@ -110,34 +166,4 @@ function ajaxOptions(selectChandedName, selectToChange, url) {
             $(selectToChange + ' option[value=0]').attr('selected', true);
         })
     });
-}
-
-var urlobj;
-
-function BrowseServer(obj)
-{
-    urlobj = obj;
-    OpenServerBrowser(
-        'http://admin/filemanager/show',
-        screen.width * 0.7,
-        screen.height * 0.7 ) ;
-}
-
-function OpenServerBrowser( url, width, height )
-{
-    var iLeft = (screen.width - width) / 2 ;
-    var iTop = (screen.height - height) / 2 ;
-    var sOptions = "toolbar=no,status=no,resizable=yes,dependent=yes" ;
-    sOptions += ",width=" + width ;
-    sOptions += ",height=" + height ;
-    sOptions += ",left=" + iLeft ;
-    sOptions += ",top=" + iTop ;
-    var oWindow = window.open( url, "BrowseWindow", sOptions ) ;
-}
-
-function SetUrl( url, width, height, alt ) {
-    // var a = url.split("/");
-    // if(a.length>0) url = a[a.length -1 ];
-    url = url.replace("http://admin/filemanager/userfiles/", "");
-    document.getElementById(urlobj).value = url;
 }

@@ -8,7 +8,9 @@ use App\Node;
 use App\NodesFiles;
 use App\ResourceType;
 use App\Street;
+use App\UsersTypes;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
 
@@ -21,6 +23,21 @@ class NodesController extends Controller
 
     public function index(Input $input){
         $nodes = Node::where('id', '>', 0);
+
+        if(!Auth::user()->hasRole(1)){
+
+            $user_companies_id = UsersTypes::where('user_id', Auth::id())->pluck('type_id')->toArray();
+
+            switch (Auth::user()->type_id){
+                case 1:
+                    $nodes->whereIn('uk_company_id', $user_companies_id);
+                    break;
+                case 2:
+                    $nodes->whereIn('rso_company_id', $user_companies_id);
+                    break;
+            }
+        }
+
         if($input->get('city_id')){
             $nodes->where('city_id', $input->get('city_id'));
         }

@@ -124,6 +124,19 @@ $(function () {
 
     });
 
+    $('select[name=type_id]').on('change', function(){
+        $.post('/admin/getCompanies',{company_id: $(this).val()},function(response){
+            $('#types').find('option').remove();
+            $.each(response,function (k,v) {
+                $('#types')
+                    .append($("<option></option>")
+                        .attr("value",k)
+                        .text(v));
+            });
+            $('#types' + ' option[value=0]').attr('selected', true);
+        });
+    });
+
 });
 
 function SetUrl( url ) {

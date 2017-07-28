@@ -67,14 +67,12 @@
                     <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
                 </div>
 
-               {{-- <div class="form-group has-feedback">
-                    {{ Form::select('role', $user_roles, null, ['class' => 'form-control']) }}
-                </div>--}}
+                @if(Route::currentRouteName() == 'admin')
+                    <div class="form-group has-feedback">
+                        {{ Form::select('role', $user_roles, null, ['class' => 'form-control']) }}
+                    </div>
+                @endif
 
-                {{--<div class="form-group has-feedback">
-                    {{ Form::select('type', $user_types, null, ['class' => 'form-control']) }}
-                </div>
---}}
                 <div class="row">
                     <div class="col-xs-5">
                         <button type="submit" class="btn btn-primary btn-block btn-flat">Регистрация</button>

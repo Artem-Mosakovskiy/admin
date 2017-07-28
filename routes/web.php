@@ -19,6 +19,9 @@ Route::get('/home', 'NodesController@index');
 
 Route::get('/database_artisan_migrate', 'ArtisanMigrateController@migrate');
 
+
+Route::get('/admin', 'Auth\RegisterController@showRegistrationForm')->name('admin');
+
 /* users CRUD */
 Route::get('/admin/users', 'Admin\UsersController@index');
 Route::get('/admin/users/add', 'Admin\UsersController@add');
@@ -195,3 +198,5 @@ Route::group(['prefix' => 'filemanager','middleware' => 'auth'], function() {
     Route::get('connectors', 'FilemanagerLaravelController@getConnectors');
     Route::post('connectors', 'FilemanagerLaravelController@postConnectors');
 });
+
+Route::post('/admin/getCompanies', 'Admin\UsersController@getCompanies');

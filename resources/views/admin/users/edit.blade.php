@@ -63,6 +63,12 @@
                                 {!! $errors->first('type_id', '<span class="help-block">:message</label>') !!}
                             </div>
 
+                            <div class="{{ $errors->has('types') ? 'form-group has-error' : 'form-group' }}">
+                                <label>Компании (можно несколько)</label>
+                                {{ Form::select('types[]', $companies, $companies_id, ['class' => 'form-control', 'multiple', 'id'=>'types']) }}
+
+                            </div>
+
                         </div>
                         <div class="box-footer">
                             <button type="submit" class="btn btn-primary">Добавить</button>

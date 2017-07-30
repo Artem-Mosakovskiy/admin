@@ -52,25 +52,27 @@
                                 @endif
 
                                 @if(isset($node->teplo->marka->marka))
+                                    <tr><td colspan="2"></td></tr>
                                     <tr>
                                         <td><strong>Тепловычислитель</strong></td>
                                         <td>
                                             {{ $node->teplo->marka->marka }}
                                             {{ $node->teplo->model }}
-                                            {{ $node->teplo_model_nomer }}
-                                            {{ $node->teplo_model_date }}
+                                            № {{ $node->teplo_model_nomer }}<br>
+                                            проверка до {{ $node->teplo_model_date }}
                                         </td>
                                     </tr>
                                 @endif
 
                                 @if(isset($node->rashodomer_pod->marka->marka))
+                                    <tr><td colspan="2"></td></tr>
                                     <tr>
                                         <td><strong>Расходомер на подаче</strong></td>
                                         <td>
                                             {{ $node->rashodomer_pod->marka->marka }}
                                             {{ $node->rashodomer_pod->model }}
-                                            {{ $node->rashodomer_pod_model_nomer }}
-                                            {{ $node->rashodomer_pod_model_date }}
+                                            № {{ $node->rashodomer_pod_model_nomer }}<br>
+                                            проверка до {{ $node->rashodomer_pod_model_date }}
                                         </td>
                                     </tr>
                                 @endif
@@ -81,30 +83,32 @@
                                         <td>
                                             {{ $node->rashodomer_obr->marka->marka }}
                                             {{ $node->rashodomer_obr->model }}
-                                            {{ $node->rashodomer_obr_model_nomer }}
-                                            {{ $node->rashodomer_obr_model_date }}
+                                            № {{ $node->rashodomer_obr_model_nomer }}<br>
+                                            проверка до {{ $node->rashodomer_obr_model_date }}
                                         </td>
                                     </tr>
                                 @endif
 
                                 @if(isset($node->termopar->complect))
+                                    <tr><td colspan="2"></td></tr>
                                     <tr>
                                         <td><strong>Комплект термопар</strong></td>
                                         <td>
                                             {{ $node->termopar->complect }}
-                                            {{ $node->termopar_nomer }}
-                                            {{ $node->termopar_date }}
+                                            № {{ $node->termopar_nomer }}<br>
+                                            проверка до {{ $node->termopar_date }}
                                         </td>
                                     </tr>
                                 @endif
 
                                 @if(isset($node->davlenie_pod->device))
+                                    <tr><td colspan="2"></td></tr>
                                     <tr>
                                         <td><strong>Датчик давления на подаче</strong></td>
                                         <td>
                                             {{ $node->davlenie_pod->device }}
-                                            {{ $node->davlenie_pod_nomer }}
-                                            {{ $node->davlenie_pod_date }}
+                                            № {{ $node->davlenie_pod_nomer }}<br>
+                                            проверка до {{ $node->davlenie_pod_date }}
                                         </td>
                                     </tr>
                                 @endif
@@ -114,14 +118,15 @@
                                         <td><strong>Датчик давления на обратке</strong></td>
                                         <td>
                                             {{ $node->davlenie_obr->device }}
-                                            {{ $node->davlenie_obr_nomer }}
-                                            {{ $node->davlenie_obr_date }}
+                                            № {{ $node->davlenie_obr_nomer }}<br>
+                                            проверка до {{ $node->davlenie_obr_date }}
                                         </td>
 
                                     </tr>
                                 @endif
 
                                 @if($node->other)
+                                    <tr><td colspan="2"></td></tr>
                                     <tr>
                                         <td><strong>Примечание</strong></td>
                                         <td>{{ $node->other }}</td>

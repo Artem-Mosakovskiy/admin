@@ -118,7 +118,7 @@ $(function () {
         $urlobj = $(this).find('input');
 
         OpenServerBrowser(
-            'http://admin/filemanager/show',
+            base_url + '/filemanager/show',
             screen.width * 0.7,
             screen.height * 0.7 ) ;
 
@@ -140,7 +140,7 @@ $(function () {
 });
 
 function SetUrl( url ) {
-    url = url.replace("https://opu-nodes.000webhostapp.com/filemanager/userfiles/", "");
+    url = url.replace(base_url + "/filemanager/userfiles/", "");
     $urlobj.val(url);
 }
 

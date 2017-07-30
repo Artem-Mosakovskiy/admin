@@ -52,7 +52,7 @@
 
                             <div class="{{ $errors->has('role_id') ? 'form-group has-error' : 'form-group' }}">
                                 <label for="exampleInputEmail1">Роль на сайте</label>
-                                {{ Form::select('role_id', $user_roles, null, ['class' => 'form-control']) }}
+                                {{ Form::select('role_id', $user_roles, 2, ['class' => 'form-control']) }}
                                 {!! $errors->first('role_id', '<span class="help-block">:message</label>') !!}
                             </div>
 

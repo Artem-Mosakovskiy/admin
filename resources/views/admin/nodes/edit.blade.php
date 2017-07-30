@@ -305,7 +305,7 @@
                             </div>
                         </div>
                         <div class="box-footer">
-                            <button type="submit" class="btn btn-primary">Добавить</button>
+                            <button type="submit" class="btn btn-primary">Сохранить</button>
                         </div>
                     </div>
                 </div>

@@ -178,6 +178,10 @@
 
 </div>
 
+<script>
+    var base_url = '{{ url('/') }}';
+</script>
+
 <script src="/js/jquery.js"></script>
 <script src="/js/jquery-ui.js"></script>
 <script src="/css/bootstrap/js/bootstrap.min.js"></script>

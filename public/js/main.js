@@ -140,7 +140,7 @@ $(function () {
 });
 
 function SetUrl( url ) {
-    url = url.replace("http://admin/filemanager/userfiles/", "");
+    url = url.replace("https://opu-nodes.000webhostapp.com/filemanager/userfiles/", "");
     $urlobj.val(url);
 }
 

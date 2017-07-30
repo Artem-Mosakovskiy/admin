@@ -119,7 +119,7 @@
                         </div>
                         <div class="box-body">
                             <div class="col-md-12">
-                                <button type="button" class="btn pull-right" id="addFile">Еще файл</button>
+                                <button type="button" class="btn pull-right" id="addFile">Добавить файл</button>
                             </div>
                         </div>
                     </div>

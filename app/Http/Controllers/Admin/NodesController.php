@@ -77,20 +77,22 @@ class NodesController extends AdminController
         $node->fill($request->except(['_token', 'files']));
         $node->save();
 
-        $files = [];
+        if($request->ufiles){
+            $files = [];
 
-        foreach ($request->ufiles as $item){
-            if(!is_null($item['file'])){
-                $file = File::create($item);
-                $files[] = $file->id;
+            foreach ($request->ufiles as $item){
+                if(!is_null($item['file'])){
+                    $file = File::create($item);
+                    $files[] = $file->id;
+                }
             }
-        }
 
-        foreach ($files as $item){
-            NodesFiles::create([
-                'node_id' => $node->id,
-                'file_id' => $item
-            ]);
+            foreach ($files as $item){
+                NodesFiles::create([
+                    'node_id' => $node->id,
+                    'file_id' => $item
+                ]);
+            }
         }
 
         Session::flash('success', 'Узел учета добавлен');
@@ -131,21 +133,22 @@ class NodesController extends AdminController
 
         NodesFiles::where('node_id', $request->id)->delete();
 
-        $files = [];
+        if($request->ufiles){
+            $files = [];
 
-        foreach ($request->ufiles as $item){
-            if(!is_null($item['file'])){
-                $file = File::create($item);
-                $files[] = $file->id;
+            foreach ($request->ufiles as $item){
+                if(!is_null($item['file'])){
+                    $file = File::create($item);
+                    $files[] = $file->id;
+                }
             }
 
-        }
-
-        foreach ($files as $item){
-            NodesFiles::create([
-                'node_id' => $node->id,
-                'file_id' => $item
-            ]);
+            foreach ($files as $item){
+                NodesFiles::create([
+                    'node_id' => $node->id,
+                    'file_id' => $item
+                ]);
+            }
         }
 
         Session::flash('success', 'Узел учета успешно отредактирован');

@@ -125,10 +125,28 @@
                                     <script> counter = '{{ $i }}'; </script>
                                 @endif
                             @endforeach
+                            @if($nodes_files->count() == 0)
+                                <div class="form-group files">
+                                    <div class="col-md-6">
+                                        <label for="exampleInputEmail1">Файл</label>
+                                        <div id="upload_file">
+                                            {{ Form::text('ufiles[0][file]', '', ['class' => 'form-control', 'id' => 'file']) }}
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>Тип файла</label>
+                                        {{ Form::select('ufiles[0][file_type_id]', $file_types, null, ['class' => 'form-control', 'id' => 'file_type']) }}
+                                    </div>
+                                    <div class="col-md-12">
+                                        <label for="exampleInputEmail1">Примечание</label>
+                                        {{ Form::text('ufiles[0][note]', '', ['class' => 'form-control', 'id' => 'note']) }}
+                                    </div>
+                                </div>
+                            @endif
                         </div>
                         <div class="box-body">
                             <div class="col-md-12">
-                                <button type="button" class="btn pull-right" id="addFile">Еще файл</button>
+                                <button type="button" class="btn pull-right" id="addFile">Добавить файл</button>
                             </div>
                         </div>
                     </div>

@@ -33,8 +33,8 @@
                                         <td>
                                             {{ $item->f_name }} {{ $item->s_name }} {{ $item->t_name }}
                                         </td>
-                                        <td>{{ $item->role->role }}</td>
-                                        <td>{{ $item->type->type }}</td>
+                                        <td>{{ $item->role ? $item->role->role : '' }}</td>
+                                        <td>{{ $item->type ? $item->type->type: '' }}</td>
                                         <td>
                                             <a href="/admin/users/edit/{{ $item->id }}" class="label label-warning">Редактировать</a>
                                             <a href="/admin/users/delete/{{ $item->id }}" class="label label-danger">Удалить</a>

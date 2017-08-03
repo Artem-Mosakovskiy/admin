@@ -173,7 +173,7 @@
     </div>
 
     <footer class="main-footer">
-        <strong>Copyright &copy; 2017 </strong> Все права защищены
+        <strong>&copy;</strong> Инновационная компания - экономь с умом.
     </footer>
 
 </div>

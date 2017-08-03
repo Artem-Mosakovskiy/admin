@@ -16,7 +16,7 @@
                             {{ Form::select('data', $years, null, ['class'=>'form-control']) }}
                         </div>
                         <div class="col-md-3">
-                            <button class="btn btn-info" type="submit">Фильтровать</button>
+                            <button class="btn btn-info noPrint" type="submit">Фильтровать</button>
                         </div>
                     </form>
                 </div><br>
@@ -26,7 +26,7 @@
 
                         <div class="box-tools">
                             @if(Auth::user()->hasRole(1))
-                                <a href="/admin/nodes/add" class="btn btn-success">Добавить</a>
+                                <a href="/admin/nodes/add" class="btn btn-success noPrint">Добавить</a>
                             @endif
                         </div>
                     </div>
@@ -60,10 +60,10 @@
                                         @endif
                                         <td>{{ $item->data }}</td>
                                         <td>
-                                            <a href="/nodes/view/{{ $item->id }}" class="label label-primary">Просмотр</a>
+                                            <a href="/nodes/view/{{ $item->id }}" class="label label-primary noPrint">Просмотр</a>
                                             @if(Auth::user()->hasRole(1))
-                                                <a href="/admin/nodes/edit/{{ $item->id }}" class="label label-warning">Редактировать</a>
-                                                <a href="/admin/nodes/delete/{{ $item->id }}" class="label label-danger">Удалить</a>
+                                                <a href="/admin/nodes/edit/{{ $item->id }}" class="label label-warning noPrint">Редактировать</a>
+                                                <a href="/admin/nodes/delete/{{ $item->id }}" class="label label-danger noPrint">Удалить</a>
                                             @endif
 
                                         </td>

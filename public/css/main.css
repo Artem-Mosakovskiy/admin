@@ -10,3 +10,14 @@
     float: right;
     margin: 20px 0;
 }
+
+
+@media print {
+    a[href]:after {
+        content: "";
+    }
+
+    .noPrint {
+        display: none;
+    }
+}

@@ -52,81 +52,110 @@
                                 @endif
 
                                 @if(isset($node->teplo->marka->marka))
-                                    <tr><td colspan="2"></td></tr>
                                     <tr>
                                         <td><strong>Тепловычислитель</strong></td>
                                         <td>
                                             {{ $node->teplo->marka->marka }}
                                             {{ $node->teplo->model }}
-                                            № {{ $node->teplo_model_nomer }}<br>
-                                            проверка до {{ $node->teplo_model_date }}
+                                            @if($node->teplo_model_nomer)
+                                                № {{ $node->teplo_model_nomer }}<br>
+                                            @endif
+
+                                            @if($node->teplo_model_date )
+                                                проверка до {{ $node->teplo_model_date }}
+                                            @endif
+
                                         </td>
                                     </tr>
                                 @endif
 
                                 @if(isset($node->rashodomer_pod->marka->marka))
-                                    <tr><td colspan="2"></td></tr>
                                     <tr>
                                         <td><strong>Расходомер на подаче</strong></td>
                                         <td>
                                             {{ $node->rashodomer_pod->marka->marka }}
                                             {{ $node->rashodomer_pod->model }}
-                                            № {{ $node->rashodomer_pod_model_nomer }}<br>
-                                            проверка до {{ $node->rashodomer_pod_model_date }}
+                                            @if($node->rashodomer_pod_model_nomer)
+                                                № {{ $node->rashodomer_pod_model_nomer }}<br>
+                                            @endif
+
+                                            @if($node->rashodomer_pod_model_date)
+                                                проверка до {{ $node->rashodomer_pod_model_date }}
+                                            @endif
+
                                         </td>
                                     </tr>
                                 @endif
 
                                 @if(isset($node->rashodomer_obr->marka->marka))
                                     <tr>
-                                        <td><strong>Расходомер на обратке</strong></td>
+                                        <td><strong>Расходомер на обработке</strong></td>
                                         <td>
                                             {{ $node->rashodomer_obr->marka->marka }}
                                             {{ $node->rashodomer_obr->model }}
-                                            № {{ $node->rashodomer_obr_model_nomer }}<br>
-                                            проверка до {{ $node->rashodomer_obr_model_date }}
+                                            @if($node->rashodomer_obr_model_nomer)
+                                                № {{ $node->rashodomer_obr_model_nomer }}<br>
+                                            @endif
+
+                                            @if($node->rashodomer_obr_model_date)
+                                                проверка до {{ $node->rashodomer_obr_model_date }}
+                                            @endif
                                         </td>
                                     </tr>
                                 @endif
 
                                 @if(isset($node->termopar->complect))
-                                    <tr><td colspan="2"></td></tr>
                                     <tr>
                                         <td><strong>Комплект термопар</strong></td>
                                         <td>
                                             {{ $node->termopar->complect }}
-                                            № {{ $node->termopar_nomer }}<br>
-                                            проверка до {{ $node->termopar_date }}
+                                            @if($node->termopar_nomer)
+                                                № {{ $node->termopar_nomer }}<br>
+                                            @endif
+
+                                            @if($node->termopar_date)
+                                                проверка до {{ $node->termopar_date }}
+                                            @endif
+
                                         </td>
                                     </tr>
                                 @endif
 
                                 @if(isset($node->davlenie_pod->device))
-                                    <tr><td colspan="2"></td></tr>
                                     <tr>
                                         <td><strong>Датчик давления на подаче</strong></td>
                                         <td>
                                             {{ $node->davlenie_pod->device }}
-                                            № {{ $node->davlenie_pod_nomer }}<br>
-                                            проверка до {{ $node->davlenie_pod_date }}
+                                            @if($node->davlenie_pod_nomer)
+                                                № {{ $node->davlenie_pod_nomer }}<br>
+                                            @endif
+
+                                            @if($node->davlenie_pod_date)
+                                                проверка до {{ $node->davlenie_pod_date }}
+                                            @endif
                                         </td>
                                     </tr>
                                 @endif
 
                                 @if(isset($node->davlenie_obr->device))
                                     <tr>
-                                        <td><strong>Датчик давления на обратке</strong></td>
+                                        <td><strong>Датчик давления на обработке</strong></td>
                                         <td>
                                             {{ $node->davlenie_obr->device }}
-                                            № {{ $node->davlenie_obr_nomer }}<br>
-                                            проверка до {{ $node->davlenie_obr_date }}
+                                            @if($node->davlenie_obr_nomer)
+                                                № {{ $node->davlenie_obr_nomer }}<br>
+                                            @endif
+
+                                            @if($node->davlenie_obr_date)
+                                                проверка до {{ $node->davlenie_obr_date }}
+                                            @endif
+
                                         </td>
 
                                     </tr>
                                 @endif
 
                                 @if($node->other)
-                                    <tr><td colspan="2"></td></tr>
                                     <tr>
                                         <td><strong>Примечание</strong></td>
                                         <td>{{ $node->other }}</td>
@@ -143,13 +172,13 @@
                         <div class="box-header with-border">
                             <h3 class="box-title">Файлы</h3>
 
-                            <div class="box-tools pull-right">
-                                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
+                            {{--<div class="box-tools pull-right">
+                                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
                                 </button>
                                 <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-                            </div>
+                            </div>--}}
                         </div>
-                            <div class="box-body" style="display:none;">
+                            <div class="box-body" style="display:block;">
                                 <ul class="products-list product-list-in-box">
                                     @foreach($nodes_files as $item)
                                         <li class="item col-md-6">
@@ -163,9 +192,9 @@
                                                 </a>
                                             </div>
                                             <div class="product-info">
-                                                <a target="_blank" href="/filemanager/userfiles/{{ $item->file->file }}" class="product-title">{{ $item->file->note }}</a>
+                                                <a target="_blank" href="/filemanager/userfiles/{{ $item->file->file }}" class="product-title">{{ $item->file->note ? $item->file->note : '' }}</a>
                                                 <span class="product-description">
-                                                    {{ $item->file->type->type }}
+                                                    {{ $item->file->type ? $item->file->type->type : '' }}
                                                 </span>
                                             </div>
                                         </li>
